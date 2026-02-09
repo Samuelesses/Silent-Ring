@@ -2053,6 +2053,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2640569991097787397, guid: 39ef44de670d0f6449bf60d0ac668276, type: 3}
+      propertyPath: mouseSensitivity
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2795056184313887916, guid: 39ef44de670d0f6449bf60d0ac668276, type: 3}
       propertyPath: m_Name
       value: Capsule
@@ -3868,7 +3872,7 @@ GameObject:
   - component: {fileID: 1050473233}
   - component: {fileID: 1050473232}
   - component: {fileID: 1050473231}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (10)
   m_TagString: climb
   m_Icon: {fileID: 0}
