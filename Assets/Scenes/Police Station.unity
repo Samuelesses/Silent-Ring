@@ -1409,12 +1409,12 @@ MonoBehaviour:
   m_text: 'Goals:
 
 
-    - Review footage, remember details.
+    - Get assigned an undercover role.
 
-    - Submit details
-    to the captain.
+    - Read over your
+    incidents breif.
 
-    - Work towards your promotion!'
+    - Go in undercover and get intel.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9ac6bd89145ae144a82c7e05599b6ccb, type: 2}
   m_sharedMaterial: {fileID: 4309646427175312437, guid: 9ac6bd89145ae144a82c7e05599b6ccb, type: 2}
@@ -2200,7 +2200,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Doorbell Detective Station
+  m_text: Detective Station
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9ac6bd89145ae144a82c7e05599b6ccb, type: 2}
   m_sharedMaterial: {fileID: 4309646427175312437, guid: 9ac6bd89145ae144a82c7e05599b6ccb, type: 2}
@@ -2363,7 +2363,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Warning: Submitting false evidence will lead to terminiation!'
+  m_text: 'Warning: Failier to get intel will lead to
+
+    termination!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9ac6bd89145ae144a82c7e05599b6ccb, type: 2}
   m_sharedMaterial: {fileID: 4309646427175312437, guid: 9ac6bd89145ae144a82c7e05599b6ccb, type: 2}
