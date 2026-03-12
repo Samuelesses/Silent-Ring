@@ -41,6 +41,9 @@ public class VoiceToText : MonoBehaviour
             Debug.LogError("[VoiceToText] No mobster selected! Hover over a character first.");
             return;
         }
+
+        ConversationMemoryLog.AppendPlayerLine(text);
+
         aiManager aiManagerInstance = GetComponent<aiManager>();
         aiManagerInstance.SendAIRequest(currentMobster, text);
     }

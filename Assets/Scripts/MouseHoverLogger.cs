@@ -31,6 +31,7 @@ public class MouseHoverLogger : MonoBehaviour
         else if (!hovering && isHovering)
         {
             Debug.Log($"[MouseHoverLogger] Stopped hovering over {gameObject.name}");
+            VoiceToText.currentMobster = null;
         }
         isHovering = hovering;
     }
