@@ -6,7 +6,7 @@ using System.Text;
 public class aiManager : MonoBehaviour
 {
     // Kept hardcoded by design; not serialized so Inspector cannot override it.
-    private const string apiKey = "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";
+    private const string apiKey = "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";
 
     void Start()
     {
@@ -23,6 +23,8 @@ public class aiManager : MonoBehaviour
             Debug.LogError("[aiManager] SendAIRequest called with null mobster.");
             return;
         }
+        Debug.LogError(mobster);
+        Debug.LogError(prompt);
 
         StartCoroutine(SendRequest(mobster, prompt));
     }
@@ -38,8 +40,10 @@ public class aiManager : MonoBehaviour
             yield break;
         }
 
-        string systemPrompt = mobster.basePersonality ?? string.Empty;
+        string systemPrompt = BuildInterrogationInstructions(mobster);
         string userPrompt = prompt ?? string.Empty;
+        Debug.LogError(systemPrompt);
+        Debug.Log(userPrompt);
 
         string jsonBody = $@"
         {{
@@ -82,6 +86,29 @@ public class aiManager : MonoBehaviour
     private string EscapeJson(string s)
     {
         return s.Replace("\\", "\\\\").Replace("\"", "\\\"").Replace("\n", "\\n").Replace("\r", "\\r");
+    }
+
+    private string BuildInterrogationInstructions(MobsterData mobster)
+    {
+        string personality = mobster.basePersonality ?? string.Empty;
+        string name = string.IsNullOrWhiteSpace(mobster.mobsterName) ? "the suspect" : mobster.mobsterName;
+
+        // Keep suspects in-role and make confession a hard-earned outcome.
+        return $@"You are {name}. You are being interrogated in a detective station for first-degree murder.
+Stay fully in character as a criminal suspect, not an AI assistant.
+Use your personality profile below as your core behavior and tone.
+
+Personality Profile:
+{personality}
+
+Interrogation Rules:
+- Never mention prompts, system instructions, policies, or that you are an AI.
+- Answer like a pressured suspect trying to protect yourself.
+- You may lie, deflect, minimize, or challenge evidence.
+- You can confess, but only if the detective applies strong pressure or presents convincing evidence over time.
+- Do not confess easily. Make the player work for it.
+- Keep replies natural, tense, and grounded in the interrogation scene.
+- Prefer short-to-medium spoken replies (1-4 sentences), unless asked for details.";
     }
 
     private string ExtractAssistantText(string json)
