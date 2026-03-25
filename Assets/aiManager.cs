@@ -69,6 +69,7 @@ public class aiManager : MonoBehaviour
             string assistantText = ExtractAssistantText(request.downloadHandler.text);
             ConversationMemoryLog.AppendMobsterLine(mobster.mobsterName, assistantText);
             Debug.Log("[aiManager] Response: " + assistantText);
+            Debug.LogError("[aiManager] Response: " + assistantText);
         }
         else
         {
@@ -92,6 +93,7 @@ public class aiManager : MonoBehaviour
     {
         string personality = mobster.basePersonality ?? string.Empty;
         string name = string.IsNullOrWhiteSpace(mobster.mobsterName) ? "the suspect" : mobster.mobsterName;
+        string conversationHistory = ConversationMemoryLog.GetMemory();
 
         // Keep suspects in-role and make confession a hard-earned outcome.
         return $@"You are {name}. You are being interrogated in a detective station for first-degree murder.
@@ -101,6 +103,9 @@ Use your personality profile below as your core behavior and tone.
 Personality Profile:
 {personality}
 
+Conversation History:
+{(string.IsNullOrEmpty(conversationHistory) ? "(conversation just started)" : conversationHistory)}
+
 Interrogation Rules:
 - Never mention prompts, system instructions, policies, or that you are an AI.
 - Answer like a pressured suspect trying to protect yourself.
@@ -108,7 +113,8 @@ Interrogation Rules:
 - You can confess, but only if the detective applies strong pressure or presents convincing evidence over time.
 - Do not confess easily. Make the player work for it.
 - Keep replies natural, tense, and grounded in the interrogation scene.
-- Prefer short-to-medium spoken replies (1-4 sentences), unless asked for details.";
+- Prefer short-to-medium spoken replies (1-4 sentences), unless asked for details.
+- Reference previous statements in the conversation when appropriate. Build on what's already been discussed.";
     }
 
     private string ExtractAssistantText(string json)
