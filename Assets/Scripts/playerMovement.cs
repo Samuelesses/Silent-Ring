@@ -23,7 +23,13 @@ public class playerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Cursor.lockState = CursorLockMode.Locked;
+        SetCursorEnabled(false);
+    }
+
+    public void SetCursorEnabled(bool isEnabled)
+    {
+        Cursor.visible = isEnabled;
+        Cursor.lockState = isEnabled ? CursorLockMode.None : CursorLockMode.Locked;
     }
 
     void Update()
