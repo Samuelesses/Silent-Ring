@@ -4,10 +4,15 @@ using UnityEngine.Windows.Speech; // Windows speech only
 
 public class VoiceToText : MonoBehaviour
 {
-    public TextMeshProUGUI playerSubtitle;
-    public static MobsterData currentMobster;
+    public MobsterData mobsterData;
+    public microphone microphoneState;
     private DictationRecognizer dictationRecognizer;
     private const float RestartDelaySeconds = 0.25f;
+
+    private void Update()
+    {
+        UpdateListeningState();
+    }
 
     void OnEnable()
     {
@@ -15,7 +20,7 @@ public class VoiceToText : MonoBehaviour
         dictationRecognizer.DictationResult += OnDictationResult;
         dictationRecognizer.DictationComplete += OnDictationComplete;
         dictationRecognizer.DictationError += OnDictationError;
-        dictationRecognizer.Start();
+        UpdateListeningState();
     }
 
     void OnDisable()
@@ -34,37 +39,64 @@ public class VoiceToText : MonoBehaviour
 
     private void OnDictationResult(string text, ConfidenceLevel confidence)
     {
+        if (IsMuted())
+            return;
+
         Debug.Log(text);
-        playerSubtitle.SetText($"You Said:\n{text}");
-        if (currentMobster == null)
+        if (mobsterData == null)
         {
-            Debug.LogError("[VoiceToText] No mobster selected! Hover over a character first.");
+            Debug.LogError("[VoiceToText] No mobster data assigned on VoiceToText.");
             return;
         }
 
         ConversationMemoryLog.AppendPlayerLine(text);
 
         aiManager aiManagerInstance = GetComponent<aiManager>();
-        aiManagerInstance.SendAIRequest(currentMobster, text);
+        aiManagerInstance.SendAIRequest(mobsterData, text);
+        microphoneState.ForceMute();
     }
 
     private void OnDictationComplete(DictationCompletionCause cause)
     {
-        if (dictationRecognizer != null)
+        if (dictationRecognizer != null && !IsMuted())
             StartCoroutine(RestartAfterDelay());
     }
 
     private void OnDictationError(string error, int hresult)
     {
-        if (dictationRecognizer != null)
+        if (dictationRecognizer != null && !IsMuted())
             StartCoroutine(RestartAfterDelay());
     }
 
     private System.Collections.IEnumerator RestartAfterDelay()
     {
+        if (dictationRecognizer == null || IsMuted())
+            yield break;
+
         if (dictationRecognizer.Status == SpeechSystemStatus.Running)
             dictationRecognizer.Stop();
         yield return new WaitForSeconds(RestartDelaySeconds);
+        if (dictationRecognizer != null && !IsMuted() && dictationRecognizer.Status != SpeechSystemStatus.Running)
+            dictationRecognizer.Start();
+    }
+
+    private bool IsMuted()
+    {
+        return microphoneState != null && microphoneState.muted;
+    }
+
+    private void UpdateListeningState()
+    {
+        if (dictationRecognizer == null)
+            return;
+
+        if (IsMuted())
+        {
+            if (dictationRecognizer.Status == SpeechSystemStatus.Running)
+                dictationRecognizer.Stop();
+            return;
+        }
+
         if (dictationRecognizer.Status != SpeechSystemStatus.Running)
             dictationRecognizer.Start();
     }

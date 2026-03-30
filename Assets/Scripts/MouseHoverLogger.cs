@@ -25,13 +25,11 @@ public class MouseHoverLogger : MonoBehaviour
         
         if (hovering && !isHovering)
         {
-            Debug.Log($"[MouseHoverLogger] Now hovering over {gameObject.name}, setting currentMobster to {mobsterData.mobsterName}");
-            VoiceToText.currentMobster = mobsterData;
+            Debug.Log($"[MouseHoverLogger] Now hovering over {gameObject.name}");
         }
         else if (!hovering && isHovering)
         {
             Debug.Log($"[MouseHoverLogger] Stopped hovering over {gameObject.name}");
-            VoiceToText.currentMobster = null;
         }
         isHovering = hovering;
     }

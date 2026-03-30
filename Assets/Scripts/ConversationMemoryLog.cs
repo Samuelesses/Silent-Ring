@@ -72,7 +72,7 @@ public class ConversationMemoryLog : MonoBehaviour
 
         conversationMemory.Append(speakerName);
         conversationMemory.Append(": ");
-        conversationMemory.Append(safeText);
+        conversationMemory.AppendLine(safeText);
 
         RefreshMemoryText();
         Debug.Log("[ConversationMemoryLog] " + speakerName + ": " + safeText);
