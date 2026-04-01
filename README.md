@@ -2,7 +2,7 @@
 
 # Silent Ring
 
-In Silent Ring, you play as an undercover detective. Your job is to infiltrate a group of criminals and get them to admit to their crimes based on the intel you have.
+In Silent Ring, you play as a detective. Your job is to interrogate criminals and find out any secret info and crimes they may have committed. Put together notes to make a final report for your boss to review. He's strict.
 
 ## How To Play:
 
