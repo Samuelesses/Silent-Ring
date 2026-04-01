@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - climb
+  - name
+  - role
+  - image
   layers:
   - Default
   - TransparentFX
