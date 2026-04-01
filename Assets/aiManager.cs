@@ -7,7 +7,6 @@ public class aiManager : MonoBehaviour
 {
     public string ttsVoice;
     public microphone microphoneState;
-    private const string apiKey = "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";
 
     void Awake()
     {
@@ -35,7 +34,7 @@ public class aiManager : MonoBehaviour
     IEnumerator SendRequest(MobsterData mobster, string prompt)
     {
         string url = "https://api.openai.com/v1/responses";
-        string trimmedKey = (apiKey ?? string.Empty).Trim();
+        string trimmedKey = GetApiKey();
 
         if (string.IsNullOrEmpty(trimmedKey))
         {
@@ -183,7 +182,13 @@ General Rules:
     IEnumerator GenerateTTS(string text)
     {
         string url = "https://api.openai.com/v1/audio/speech";
-        string trimmedKey = (apiKey ?? string.Empty).Trim();
+        string trimmedKey = GetApiKey();
+
+        if (string.IsNullOrEmpty(trimmedKey))
+        {
+            Debug.LogError("[aiManager] API key is empty.");
+            yield break;
+        }
 
         TtsRequestBody payload = new TtsRequestBody
         {
@@ -252,6 +257,11 @@ General Rules:
             Debug.LogError("[aiManager] TTS Error: " + request.error + " | HTTP " + request.responseCode);
             Debug.LogError("[aiManager] TTS Error body: " + request.downloadHandler.text);
         }
+    }
+
+    private string GetApiKey()
+    {
+        return PlayerPrefs.GetString("key", string.Empty).Trim();
     }
 
     [System.Serializable]

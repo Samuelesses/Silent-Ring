@@ -6,11 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: 41fe13e371fc4a04ab99f7686aff74ec
+  - enabled: 1
     path: Assets/Scenes/Police Station.unity
     guid: f77b0969bf9ec4b45a6da45ce95d706a
   - enabled: 1
     path: Assets/Scenes/Interigation Room.unity
     guid: 0f6b59f8cc2f04592b6eff5522135ad2
+  - enabled: 1
+    path: Assets/Scenes/Complete.unity
+    guid: 5ede24c8f196cbb4c863877250fedc82
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
