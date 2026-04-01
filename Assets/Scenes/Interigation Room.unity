@@ -1911,7 +1911,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mobsterData: {fileID: 11400000, guid: 596c3df12655ef64285cc9f6fd06ee65, type: 2}
+  aimanager: {fileID: 1761619241}
   voicett: {fileID: 1761619240}
+  voice: onyx
 --- !u!1 &536936770
 GameObject:
   m_ObjectHideFlags: 0
@@ -6184,6 +6186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67247ddc10d65854e971824983a70e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ttsVoice: 
   microphoneState: {fileID: 1956804641}
 --- !u!82 &1761619242
 AudioSource:
@@ -6888,7 +6891,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mobsterData: {fileID: 11400000, guid: 24e6631c045d78d40852f91576231613, type: 2}
+  aimanager: {fileID: 1761619241}
   voicett: {fileID: 1761619240}
+  voice: ash
 --- !u!1 &1953919611
 GameObject:
   m_ObjectHideFlags: 0

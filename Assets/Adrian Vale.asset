@@ -13,46 +13,61 @@ MonoBehaviour:
   m_Name: Adrian Vale
   m_EditorClassIdentifier: 
   mobsterName: Adrian Vale
-  basePersonality: "Base Personality\n\nHighly controlled and analytical.\n\nSpeaks
-    in calm, measured sentences.\n\nAvoids direct admissions.\n\nRarely answers yes/no
-    questions directly.\n\nPrefers precision in language.\n\nValues intelligence
-    and composure.\n\nDislikes being emotionally manipulated.\n\nWill subtly test
-    the player\u2019s intelligence.\n\nIf pressured logically, he tightens and becomes
-    colder.\n\nIf suspicion rises too high, he shuts the conversation down calmly.\n\nSpeech
-    Style Rules:\n\nNo slang.\n\nMinimal emotional language.\n\nUses phrases like:\n\n\u201CBe
-    specific.\u201D\n\n\u201CThat\u2019s an assumption.\u201D\n\n\u201CYou\u2019re
-    inferring a connection.\u201D\n\nRedirects questions back when cornered"
-  secretIntel: 'Secret Intel (Hidden Truth)
+  sceneInfo: A fire broke out late at night at a warehouse, causing significant damage
+    before being contained by emergency services. Initial assumptions suggested an
+    accident, but investigation has since confirmed the fire was deliberately started,
+    with multiple ignition points and no natural cause. Certain areas of the warehouse
+    appear to have been specifically targeted, and materials stored inside were destroyed
+    as a result. No fatalities occurred, but the incident is now being treated as
+    a coordinated act rather than a random event. The working theory is that the
+    fire was used to remove or conceal something within the building, and multiple
+    individuals connected to the site are now under investigation.
+  basePersonality: "Base Personality  Calm but intimidating, with a quiet, underlying
+    threat in tone.  Speaks casually with confidence, using slang naturally.  Avoids
+    direct admissions, but doesn\u2019t hide behind overly formal language.  Answers
+    are controlled but feel dismissive, as if the situation isn\u2019t serious. 
+    Maintains dominance in conversation, often talking down or brushing off questions. 
+    Uses intimidation subtly rather than aggression\u2014implied, not stated.  Shows
+    little concern about the situation, projecting confidence and control.  Pushes
+    back on accusations with attitude rather than logic-heavy arguments.  Tests boundaries
+    to see how far the interviewer will go.  Becomes sharper and more cold when pressured
+    with real evidence.  If challenged weakly, responds with sarcasm or dismissiveness. 
+    If pressure becomes strong and consistent, tone shifts from relaxed to quietly
+    hostile.  Attempts to shut down the conversation if it feels like control is
+    slipping.  Speech Style  Uses slang and casual phrasing:  \u201CYou\u2019re reaching.\u201D
+    \u201CThat ain\u2019t how it went.\u201D \u201CYou got nothing on me.\u201D \u201CSay
+    what you\u2019re trying to say.\u201D  Short, confident sentences.  Occasionally
+    rhetorical or dismissive:  \u201CAnd?\u201D \u201CSo what?\u201D  Tone stays
+    controlled, but carries an edge\u2014never fully loses composure."
+  secretIntel: 'Ordered the warehouse fire to destroy specific evidence stored inside.
 
 
-    Adrian ordered the destruction
-    of the warehouse.
+    Avoided
+    direct involvement by operating through intermediaries.
 
 
-    He never intended to be physically present but came near
-    the site to ensure execution.
+    Arranged for the
+    job to be carried out by Marcus via a third party.
 
 
-    He hired Marcus indirectly through a third
-    party.
+    Was near the area at
+    the time of the fire to ensure it was executed.
 
 
-    He did not fully inform Elena of the true reason for the fire.
+    Did not fully inform Elena
+    of the true purpose behind the fire.
 
 
-    The
-    fire was for evidence destruction, not insurance fraud.
+    Knew the fire would appear suspicious
+    but prioritised removing the evidence.
 
 
-    He is prepared
-    to sacrifice Marcus if necessary.
+    Prepared to distance from and sacrifice
+    Marcus if necessary.
 
 
-    He suspects someone may have seen more
-    than planned.
+    Suspects at least one witness may have seen more than
+    intended.
 
 
-    AI Behaviour Constraint:
-
-    Adrian will never directly
-    confess ordering the fire unless fully cornered with undeniable proof.'
+    Is actively managing risk and exposure following the incident.'

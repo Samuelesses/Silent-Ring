@@ -1,23 +1,27 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class infoSave : MonoBehaviour
 {
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private TMP_Text roleText;
+    [SerializeField] private RawImage portraitImage;
     [SerializeField] private TMP_InputField inputField;
 
     [SerializeField] private string playerPrefsKey = string.Empty;
 
     public string selectedName;
     public string selectedRole;
+    public Sprite selectedSprite;
 
-    public void OnButtonClicked(string name, string role)
+    public void OnButtonClicked(string name, string role, Sprite sprite)
     {
         selectedName = string.IsNullOrWhiteSpace(name) ? string.Empty : name.Trim();
         selectedRole = role ?? string.Empty;
+        selectedSprite = sprite;
 
-        Debug.Log($"infoSave.OnButtonClicked -> name: '{selectedName}', role: '{selectedRole}' on '{gameObject.name}'");
+        Debug.Log($"infoSave.OnButtonClicked -> name: '{selectedName}', role: '{selectedRole}', sprite: '{(selectedSprite != null ? selectedSprite.name : "none")}' on '{gameObject.name}'");
 
         if (string.IsNullOrWhiteSpace(selectedName))
         {
@@ -33,6 +37,11 @@ public class infoSave : MonoBehaviour
         if (roleText != null)
         {
             roleText.text = selectedRole;
+        }
+
+        if (portraitImage != null)
+        {
+            portraitImage.texture = selectedSprite != null ? selectedSprite.texture : null;
         }
 
         playerPrefsKey = selectedName;

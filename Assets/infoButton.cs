@@ -6,6 +6,7 @@ public class infoButton : MonoBehaviour
     [SerializeField] private infoSave target;
     [SerializeField] private string nameValue = string.Empty;
     [SerializeField] private string roleValue = string.Empty;
+    [SerializeField] private Sprite spriteValue;
     [SerializeField] private bool autoHookToButton = true;
 
     private Button button;
@@ -45,8 +46,8 @@ public class infoButton : MonoBehaviour
             return;
         }
 
-        Debug.Log($"infoButton.Trigger -> name: '{nameValue}', role: '{roleValue}', target: '{target.gameObject.name}'");
+        Debug.Log($"infoButton.Trigger -> name: '{nameValue}', role: '{roleValue}', sprite: '{(spriteValue != null ? spriteValue.name : "none")}', target: '{target.gameObject.name}'");
 
-        target.OnButtonClicked(nameValue, roleValue);
+        target.OnButtonClicked(nameValue, roleValue, spriteValue);
     }
 }
